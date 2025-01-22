@@ -11,8 +11,13 @@ import java.util.Scanner;
  * @author Jufa
  */
 public class Pacman1 {
+    //Principio del main, creación de elementos
     String[][] tablero=new String[15][19];
     Personaje pacman=new Personaje("P",9,9);
+    Personaje fantasma1= new Personaje("F",6,9);
+        Personaje fantasma2= new Personaje("F",7,9);
+        Personaje fantasma3= new Personaje("F",7,8);
+        Personaje fantasma4= new Personaje("F",7,10);
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
         String[][] tablero=new String[15][19];
@@ -27,51 +32,87 @@ public class Pacman1 {
         tablero[7][9]= fantasma2.getNombre();
         tablero[7][8]= fantasma3.getNombre();
         tablero[7][10]= fantasma4.getNombre();
+        //Primera vez que se lee el tablero con todo creado y colocado
         leertablero(tablero);
+        //Creación de variables para el while y del contador
+        //Empieza el bucle por lo que empieza la partida
         Boolean condicion=true;
+        int contador=0;
         while(condicion=true){
-            
+            //Defino el switch entero que se encarga del movimiento del pacman y de la puntuación
             String direccion= sc.nextLine();
             switch (direccion) {
                 case "d":
                 if(tablero[pacman.getY()][pacman.getX()+1].equals("|")){
                     leertablero(tablero);
+                    System.out.println(contador); 
                 break;
                 }
+                String sigD=tablero[pacman.getY()][pacman.getX()+1];
                 tablero[pacman.getY()][pacman.getX()]=" ";
                 pacman.x=pacman.getX()+1;
                 tablero[pacman.getY()][pacman.getX()]="P";
                 leertablero(tablero);
+                if(sigD=="."){
+                contador=contador+10;
+                }else if(sigD=="o"){
+                contador=contador+1000;
+                }
+                System.out.println(contador);
                 break;
                 case "a":
                 if(tablero[pacman.getY()][pacman.getX()-1].equals("|")){
                     leertablero(tablero);
+                    System.out.println(contador);
                 break;
                 }
+                String sigA=tablero[pacman.getY()][pacman.getX()-1];
                 tablero[pacman.getY()][pacman.getX()]=" ";
                 pacman.x=pacman.getX()-1;
                 tablero[pacman.getY()][pacman.getX()]="P";
                 leertablero(tablero);
+                if(sigA=="."){
+                contador=contador+10;
+                }else if(sigA=="o"){
+                contador=contador+1000;
+                }
+                System.out.println(contador);
                 break;
                 case "w":
                 if(tablero[pacman.getY()-1][pacman.getX()].equals("|")||tablero[pacman.getY()-1][pacman.getX()].equals("-")){
                     leertablero(tablero);
+                    System.out.println(contador);
                 break;
                 }
+                String sigW=tablero[pacman.getY()-1][pacman.getX()];
                 tablero[pacman.getY()][pacman.getX()]=" ";
                 pacman.y=pacman.getY()-1;
                 tablero[pacman.getY()][pacman.getX()]="P";
                 leertablero(tablero);
+                if(sigW=="."){
+                contador=contador+10;
+                }else if(sigW=="o"){
+                contador=contador+1000;
+                }
+                System.out.println(contador);
                 break;
                 case "s":
                 if(tablero[pacman.getY()+1][pacman.getX()].equals("|")||tablero[pacman.getY()+1][pacman.getX()].equals("-")){
                     leertablero(tablero);
+                    System.out.println(contador);
                 break;
                 }
+                String sigS=tablero[pacman.getY()+1][pacman.getX()];
                 tablero[pacman.getY()][pacman.getX()]=" ";
                 pacman.y=pacman.getY()+1;
                 tablero[pacman.getY()][pacman.getX()]="P";
                 leertablero(tablero);
+                if(sigS=="."){
+                contador=contador+10;
+                }else if(sigS=="o"){
+                contador=contador+1000;
+                }
+                System.out.println(contador);
                 break;
                 case "e":
                 condicion=false;
@@ -125,8 +166,8 @@ public class Pacman1 {
          tablero[6][9]=" ";
          tablero[6][8]="-";
          tablero[6][10]="-";
-         tablero[8][7]="|";
-         tablero[8][11]="|";
+         tablero[7][7]="|";
+         tablero[7][11]="|";
          tablero[10][i]="-";
          tablero[4][i]="-";
         }
@@ -135,20 +176,24 @@ public class Pacman1 {
          tablero[2][i]="-";
          tablero[4][i]="-";
          tablero[10][i]="-";
+         tablero[2][1]="o";
         }
         for (int i = 15; i < 17; i++) {
          tablero[2][i]="-";
          tablero[4][i]="-";
          tablero[10][i]="-";
+         tablero[2][17]="o";
         }
     //Fila de abajo de islas
         for (int i = 2; i < 8; i++) {
          tablero[12][i]="-";
          tablero[12][5]=".";
+         tablero[12][1]="o";
         }
         for (int i = 11; i < 17; i++) {
          tablero[12][i]="-";
          tablero[12][13]=".";
+         tablero[12][17]="o";
         }
     //Columnas interiores
         for (int i = 2; i < 11; i++) {
@@ -173,6 +218,17 @@ public class Pacman1 {
             }
             System.out.println(" ");
         }
+    }
+    public void moverFantasma(){
+    int movFant1=(int)(Math.random() * 4) + 1;
+    int movFant2=(int)(Math.random() * 4) + 1;
+    int movFant3=(int)(Math.random() * 4) + 1;
+    int movFant4=(int)(Math.random() * 4) + 1;
+    
+    
+    if(tablero[fantasma1.getY()][fantasma1.getX()+1].equals("|")||tablero[fantasma1.getY()][fantasma1.getX()].equals("-")){
+    }
+    
     }
 }
 
