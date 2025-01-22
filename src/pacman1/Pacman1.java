@@ -38,7 +38,16 @@ public class Pacman1 {
         //Empieza el bucle por lo que empieza la partida
         Boolean condicion=true;
         int contador=0;
+        int vidas=3;
         while(condicion==true){
+            if(contador>=20000){
+            System.out.println("HAS GANADO");
+            condicion=false;
+            }
+            if(vidas==0){
+            System.out.println("HAS PERDIDO");
+            condicion=false;
+            }
             //Defino el switch entero que se encarga del movimiento del pacman y de la puntuación
             String direccion= sc.nextLine();
             switch (direccion) {
@@ -49,11 +58,16 @@ public class Pacman1 {
                     moverFantasma(fantasma3,tablero);
                     moverFantasma(fantasma4,tablero);
                     leertablero(tablero);
-                    System.out.println(contador); 
+                    System.out.println("Puntuación: "+contador);
+                    System.out.println("Vidas restantes: "+vidas);
                 break;
                 }
                 String sigD=tablero[pacman.getY()][pacman.getX()+1];
+                if(tablero[pacman.getY()][pacman.getX()]=="F"){
+                tablero[pacman.getY()][pacman.getX()]="F";
+                }else{
                 tablero[pacman.getY()][pacman.getX()]=" ";
+                }
                 pacman.x=pacman.getX()+1;
                 tablero[pacman.getY()][pacman.getX()]="P";
                 moverFantasma(fantasma1,tablero);
@@ -64,9 +78,12 @@ public class Pacman1 {
                 if(sigD=="."){
                 contador=contador+10;
                 }else if(sigD=="o"){
-                contador=contador+1000;
+                contador=contador+5000;
+                }else if(sigD=="F"){
+                vidas=vidas-1;
                 }
-                System.out.println(contador);
+                System.out.println("Puntuación: "+contador);
+                    System.out.println("Vidas restantes: "+vidas);
                 break;
                 case "a":
                 if(tablero[pacman.getY()][pacman.getX()-1].equals("|")||tablero[pacman.getY()][pacman.getX()-1].equals("-")){
@@ -75,11 +92,16 @@ public class Pacman1 {
                     moverFantasma(fantasma3,tablero);
                     moverFantasma(fantasma4,tablero);
                     leertablero(tablero);
-                    System.out.println(contador);
+                    System.out.println("Puntuación: "+contador);
+                    System.out.println("Vidas restantes: "+vidas);
                 break;
                 }
                 String sigA=tablero[pacman.getY()][pacman.getX()-1];
+                if(tablero[pacman.getY()][pacman.getX()]=="F"){
+                tablero[pacman.getY()][pacman.getX()]="F";
+                }else{
                 tablero[pacman.getY()][pacman.getX()]=" ";
+                }
                 pacman.x=pacman.getX()-1;
                 tablero[pacman.getY()][pacman.getX()]="P";
                 moverFantasma(fantasma1,tablero);
@@ -90,9 +112,12 @@ public class Pacman1 {
                 if(sigA=="."){
                 contador=contador+10;
                 }else if(sigA=="o"){
-                contador=contador+1000;
+                contador=contador+5000;
+                }else if(sigA=="F"){
+                vidas=vidas-1;
                 }
-                System.out.println(contador);
+                System.out.println("Puntuación: "+contador);
+                    System.out.println("Vidas restantes: "+vidas);
                 break;
                 case "w":
                 if(tablero[pacman.getY()-1][pacman.getX()].equals("|")||tablero[pacman.getY()-1][pacman.getX()].equals("-")){
@@ -101,11 +126,16 @@ public class Pacman1 {
                     moverFantasma(fantasma3,tablero);
                     moverFantasma(fantasma4,tablero);
                     leertablero(tablero);
-                    System.out.println(contador);
+                    System.out.println("Puntuación: "+contador);
+                    System.out.println("Vidas restantes: "+vidas);
                 break;
                 }
                 String sigW=tablero[pacman.getY()-1][pacman.getX()];
+                if(tablero[pacman.getY()][pacman.getX()]=="F"){
+                tablero[pacman.getY()][pacman.getX()]="F";
+                }else{
                 tablero[pacman.getY()][pacman.getX()]=" ";
+                }
                 pacman.y=pacman.getY()-1;
                 tablero[pacman.getY()][pacman.getX()]="P";
                 moverFantasma(fantasma1,tablero);
@@ -116,9 +146,12 @@ public class Pacman1 {
                 if(sigW=="."){
                 contador=contador+10;
                 }else if(sigW=="o"){
-                contador=contador+1000;
+                contador=contador+5000;
+                }else if(sigW=="F"){
+                vidas=vidas-1;
                 }
-                System.out.println(contador);
+                System.out.println("Puntuación: "+contador);
+                    System.out.println("Vidas restantes: "+vidas);
                 break;
                 case "s":
                 if(tablero[pacman.getY()+1][pacman.getX()].equals("|")||tablero[pacman.getY()+1][pacman.getX()].equals("-")){
@@ -127,11 +160,16 @@ public class Pacman1 {
                     moverFantasma(fantasma3,tablero);
                     moverFantasma(fantasma4,tablero);
                     leertablero(tablero);
-                    System.out.println(contador);
+                    System.out.println("Puntuación: "+contador);
+                    System.out.println("Vidas restantes: "+vidas);
                 break;
                 }
                 String sigS=tablero[pacman.getY()+1][pacman.getX()];
+                if(tablero[pacman.getY()][pacman.getX()]=="F"){
+                tablero[pacman.getY()][pacman.getX()]="F";
+                }else{
                 tablero[pacman.getY()][pacman.getX()]=" ";
+                }
                 pacman.y=pacman.getY()+1;
                 tablero[pacman.getY()][pacman.getX()]="P";
                 moverFantasma(fantasma1,tablero);
@@ -142,16 +180,19 @@ public class Pacman1 {
                 if(sigS=="."){
                 contador=contador+10;
                 }else if(sigS=="o"){
-                contador=contador+1000;
+                contador=contador+5000;
+                }else if(sigS=="F"){
+                vidas=vidas-1;
                 }
-                System.out.println(contador);
+                System.out.println("Puntuación: "+contador);
+                    System.out.println("Vidas restantes: "+vidas);
                 break;
                 case "e":
+                System.out.println("FIN DEL JUEGO");
                 condicion=false;
                 break;
             }
         }
-        System.out.println("FIN DEL JUEGO");
 
     }
     //------------------------------MÉTODOS-------------------------------------
