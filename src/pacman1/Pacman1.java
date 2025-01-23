@@ -222,7 +222,7 @@ public class Pacman1 {
             }
             if(contador>=20000){
         System.out.println("-----------");
-        System.out.println("HAS GANAD0");
+        System.out.println("HAS GANADO");
         System.out.println("-----------");
             condicion=false;
             }else if(vidas==0){
