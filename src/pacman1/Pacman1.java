@@ -6,6 +6,9 @@ package pacman1;
 import java.awt.event.ActionEvent;
 import java.util.Arrays;
 import java.util.Scanner;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 /**
  *
  * @author Jufa
@@ -62,6 +65,15 @@ public class Pacman1 {
         //Primera vez que se lee el tablero con todo creado y colocado
         leertablero(tablero);
         //Empieza el bucle por lo que empieza la partida
+        try {
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(Pacman1.class.getResource("sonidopkm.wav"));
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioInputStream);
+            clip.loop(Clip.LOOP_CONTINUOUSLY); 
+            clip.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         while(condicion==true){
             temporizador=temporizador-1;
             
@@ -440,4 +452,3 @@ public class Pacman1 {
     }
     
 }
-
