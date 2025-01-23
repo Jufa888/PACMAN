@@ -64,22 +64,6 @@ public class Pacman1 {
         //Empieza el bucle por lo que empieza la partida
         while(condicion==true){
             temporizador=temporizador-1;
-            if(contador>=20000){
-        System.out.println("-----------");
-        System.out.println("HAS GANAD0");
-        System.out.println("-----------");
-            condicion=false;
-            }else if(vidas==0){
-        System.out.println("----------");
-        System.out.println("GAME OVER");
-        System.out.println("----------");
-            condicion=false;
-            }else if(temporizador==0){
-        System.out.println("----------");
-        System.out.println("GAME OVER");
-        System.out.println("----------");
-            condicion=false;
-            }
             
            
             //Defino el switch entero que se encarga del movimiento del pacman y de la puntuación
@@ -94,7 +78,7 @@ public class Pacman1 {
                     leertablero(tablero);
                     System.out.println("Puntuación: "+contador);
                     System.out.println("Vidas restantes: "+vidas);
-                    System.out.println(temporizador);
+                    System.out.println("Tiempo: "+temporizador);
 
                 break;
                 }
@@ -120,7 +104,7 @@ public class Pacman1 {
                 }
                 System.out.println("Puntuación: "+contador);
                 System.out.println("Vidas restantes: "+vidas);
-                System.out.println(temporizador);
+                System.out.println("Tiempo: "+temporizador);
 
                 break;
                 case "a":
@@ -132,7 +116,7 @@ public class Pacman1 {
                     leertablero(tablero);
                     System.out.println("Puntuación: "+contador);
                     System.out.println("Vidas restantes: "+vidas);
-                    System.out.println(temporizador);
+                    System.out.println("Tiempo: "+temporizador);
                 break;
                 }
                 String sigA=tablero[pacman.getY()][pacman.getX()-1];
@@ -157,7 +141,7 @@ public class Pacman1 {
                 }
                 System.out.println("Puntuación: "+contador);
                 System.out.println("Vidas restantes: "+vidas);
-                System.out.println(temporizador);
+                System.out.println("Tiempo: "+temporizador);
                 break;
                 case "w":
                 if(tablero[pacman.getY()-1][pacman.getX()].equals("|")||tablero[pacman.getY()-1][pacman.getX()].equals("-")){
@@ -168,7 +152,7 @@ public class Pacman1 {
                     leertablero(tablero);
                     System.out.println("Puntuación: "+contador);
                     System.out.println("Vidas restantes: "+vidas);
-                    System.out.println(temporizador);
+                    System.out.println("Tiempo: "+temporizador);
                 break;
                 }
                 String sigW=tablero[pacman.getY()-1][pacman.getX()];
@@ -193,7 +177,7 @@ public class Pacman1 {
                 }
                 System.out.println("Puntuación: "+contador);
                 System.out.println("Vidas restantes: "+vidas);
-                System.out.println(temporizador);
+                System.out.println("Tiempo: "+temporizador);
                 break;
                 case "s":
                 if(tablero[pacman.getY()+1][pacman.getX()].equals("|")||tablero[pacman.getY()+1][pacman.getX()].equals("-")){
@@ -204,7 +188,7 @@ public class Pacman1 {
                     leertablero(tablero);
                     System.out.println("Puntuación: "+contador);
                     System.out.println("Vidas restantes: "+vidas);
-                    System.out.println(temporizador);
+                    System.out.println("Tiempo: "+temporizador);
                 break;
                 }
                 String sigS=tablero[pacman.getY()+1][pacman.getX()];
@@ -229,12 +213,28 @@ public class Pacman1 {
                 }
                 System.out.println("Puntuación: "+contador);
                 System.out.println("Vidas restantes: "+vidas);
-                System.out.println(temporizador);
+                System.out.println("Tiempo: "+temporizador);
                 break;
                 case "e":
                 System.out.println("FIN DEL JUEGO");
                 condicion=false;
                 break;
+            }
+            if(contador>=20000){
+        System.out.println("-----------");
+        System.out.println("HAS GANAD0");
+        System.out.println("-----------");
+            condicion=false;
+            }else if(vidas==0){
+        System.out.println("----------");
+        System.out.println("GAME OVER");
+        System.out.println("----------");
+            condicion=false;
+            }else if(temporizador==0){
+        System.out.println("----------");
+        System.out.println("GAME OVER");
+        System.out.println("----------");
+            condicion=false;
             }
         }
 
