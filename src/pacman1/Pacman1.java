@@ -66,7 +66,7 @@ public class Pacman1 {
         leertablero(tablero);
         //Empieza el bucle por lo que empieza la partida
         try {
-            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(Pacman1.class.getResource("sonidopkm.wav"));
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(Pacman1.class.getResource("sonidoarcade.wav"));
             Clip clip = AudioSystem.getClip();
             clip.open(audioInputStream);
             clip.loop(Clip.LOOP_CONTINUOUSLY); 
